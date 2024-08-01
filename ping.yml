@@ -8,5 +8,5 @@
 
   - name: Play 2 - change hostname
     ansible.builtin.hostname:
-      name: "cressen2electricboogaloo"
+      name: {{ komga_host_name }}
       use: "debian"
