@@ -6,10 +6,3 @@
   tasks:
     - name: Play 1 pong it
       ansible.builtin.ping:
-
-    - name: Play 2 EB
-      vars:
-        sshd:
-          MaxAuthTries: 10
-      include_role: 
-        name: redhat.rhel_system_roles.sshd
