@@ -1,17 +1,15 @@
 ---
-
 - name: Playbook to gather facts.....and do sshd i guess
-- gather_facts: true
-- hosts: Komga
+  gather_facts: true
+  hosts: Komga
 
-- tasks:
-  - name: Play 1 pong it
-    ansible.builtin.ping:
+  tasks:
+    - name: Play 1 pong it
+      ansible.builtin.ping:
 
-  - name: Configure sshd
-    vars:
-      sshd:
-        MaxAuthTries: 10
-    include_role: 
-      name: rhel_system_roles.sshd
-    
+    - name: Play 2 EB
+      vars:
+        sshd:
+          MaxAuthTries: 10
+      include_role: 
+        name: redhat.rhel_system_roles.sshd
