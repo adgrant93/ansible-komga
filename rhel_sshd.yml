@@ -8,9 +8,3 @@
   roles:
     - role: redhat.rhel_system_roles.sshd
 
-  tasks:
-    - name: Play 1 pong it
-      ansible.builtin.ping:
-
-    - name: Play 2 for sshd
-
