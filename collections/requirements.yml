@@ -1,4 +1,4 @@
 ---
 collections:
 # With just the collection name
-- name: redhat.rhel_system_roles.sshd
+- name: redhat.rhel_system_roles

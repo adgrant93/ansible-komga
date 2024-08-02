@@ -13,5 +13,5 @@
       sshd:
         MaxAuthTries: 10
     include_role: 
-      name: redhat.rhel_system_roles.sshd
+      name: rhel_system_roles.sshd
     
