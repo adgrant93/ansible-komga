@@ -1,12 +1,14 @@
+---
+
 - name: Playbook Komga
   hosts: Komga
   gather_facts: true
   tasks:
 
-  - name: Play 1 - ping test
-    ansible.builtin.ping:
+    - name: Play 1 - ping test
+      ansible.builtin.ping:
 
-  - name: Play 2 - change hostname
-    ansible.builtin.hostname:
-      name: "{{ komga_host_name }}"
-      use: "debian"
+    - name: Play 2 - change hostname
+      ansible.builtin.hostname:
+        name: "{{ komga_host_name }}"
+        use: "debian"
