@@ -1,7 +1,7 @@
 ---
 - name: Playbook to gather facts.....and do sshd i guess
   gather_facts: true
-  hosts: Komga
+  hosts: Beldam
   vars:
     sshd:
       MaxAuthTries: 10
