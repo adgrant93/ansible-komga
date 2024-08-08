@@ -12,9 +12,13 @@
         state: enabled
         immediate: true
         permanent: true
-    - name: Allow HTTP traffic
+    - name: Allow HTTP traffic and forward
       ansible.posix.firewalld:
-        service: http
+        port: 8080/tcp
+        port_forward:
+          - port: 8080
+          - proto: tcp
+          - toport: 80
         zone: public
         state: enabled
         immediate: true
