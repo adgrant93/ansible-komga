@@ -14,7 +14,7 @@
         permanent: true
     - name: Allow HTTP traffic
       ansible.posix.firewalld:
-        service: "{{ http_port }}"
+        service: http-alt
         zone: public
         state: enabled
         immediate: true
