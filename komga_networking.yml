@@ -15,11 +15,14 @@
     - name: Allow HTTP traffic and forward
       ansible.posix.firewalld:
         port: 8080/tcp
-        port_forward:
-          - port: 8080
-          - proto: tcp
-          - toport: 80
         zone: public
         state: enabled
         immediate: true
         permanent: true
+    - name: Forward ports
+      ansible.posix.firewalld:
+        state: enabled
+        port_forward:
+          - port: 8080
+          - proto: tcp
+          - toport: 80
