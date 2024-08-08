@@ -14,7 +14,7 @@
         permanent: true
     - name: Allow HTTP traffic
       ansible.posix.firewalld:
-        service: http-alt
+        service: webcache
         zone: public
         state: enabled
         immediate: true
