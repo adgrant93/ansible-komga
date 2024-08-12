@@ -3,6 +3,7 @@
   hosts: Beldam
   vars:
     http_port: 8080/tcp
+    komga_port: 25600/tcp
    # internal_network: "192.168.1.0/24"
   tasks:
     # - name: Allow traffic from internal network
@@ -15,6 +16,13 @@
     - name: Allow HTTP traffic
       ansible.posix.firewalld:
         port: "{{ http_port }}"
+        zone: public
+        state: enabled
+        immediate: true
+        permanent: true
+    - name: Allow HTTP traffic for Komga
+      ansible.posix.firewalld:
+        port: "{{ komga_port }}"
         zone: public
         state: enabled
         immediate: true
