@@ -12,10 +12,10 @@
         state: enabled
         immediate: true
         permanent: true
-    - name: Allow HTTP traffic
-      ansible.posix.firewalld:
-        port: 8080/tcp
-        zone: public
-        state: enabled
-        immediate: true
-        permanent: true
+    # - name: Allow HTTP traffic
+    #   ansible.posix.firewalld:
+    #     port: 8080/tcp
+    #     zone: public
+    #     state: enabled
+    #     immediate: true
+    #     permanent: true
