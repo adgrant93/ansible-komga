@@ -1,13 +1,24 @@
 podman create \
   --name=komga \
   -p 25600:25600 \
-  --mount type=bind,source=/mnt/Komga/Config,target=/config:Z \
-  --mount type=bind,source=/mnt/Komga/Manga,target=/data:Z \
+  --mount type=bind,source=/mnt/Komga/Config,target=/config \
+  --mount type=bind,source=/home/cressen/Documents,target=/home \
   --restart unless-stopped \
-  --net mynet \
-  -u root \
+  --user 1000:1000 \
+  gotson/komga
+#Below Works
+docker create \
+  --name=komga \
+  -p 25600:25600 \
+  --mount type=bind,source=/Users/cressen/Documents/Komga/Config,target=/config \
+  --mount type=bind,source=/Users/cressen/Documents/Komga/Manga,target=/home \
+  --restart unless-stopped \
+  --user 1000:1000 \
   gotson/komga
 
+
+
+/Users/cressen/Documents/Komga
 
 podman run --rm -p 12345:8080 -v /home/cressen/Documents:/config -v /mnt/Komga/Manga/:/data docker.io/gotson/komga
 # ---
