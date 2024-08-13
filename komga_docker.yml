@@ -1,12 +1,8 @@
 ---
 
-- name: Playbook to install docker and required packages for automation
+- name: Playbook to install docker-SDK for python
   hosts: Beldam
   tasks:
-    - name: Install package python3-pip
-      ansible.builtin.dnf:
-        name: python3-pip
-        state: latest
     - name: Install pip package docker-sdk
       ansible.builtin.pip:
         name: docker
