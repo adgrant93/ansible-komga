@@ -10,8 +10,8 @@ podman create \
 docker create \
   --name=komga \
   -p 25600:25600 \
-  --mount type=bind,source=/Users/cressen/Documents/Komga/Config,target=/config \
-  --mount type=bind,source=/Users/cressen/Documents/Komga/Manga,target=/home \
+  --mount type=bind,source=/mnt/Komga/Config,target=/config \
+  --mount type=bind,source=/mnt/Komga/Manga,target=/home \
   --restart unless-stopped \
   --user 1000:1000 \
   gotson/komga

@@ -1,0 +1,7 @@
+---
+
+- name: Playbook to install docker and required packages for automation
+  hosts: Beldam
+  tasks:
+    ansible.builtin.pip:
+      name: docker
