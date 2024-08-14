@@ -2,4 +2,3 @@
 collections:
 # With just the collection name
 - name: redhat.rhel_system_roles
-- name: community.docker.docker_container
