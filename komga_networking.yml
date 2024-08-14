@@ -19,3 +19,10 @@
         state: enabled
         immediate: true
         permanent: true
+    - name: Allow SMB traffic for Manga Share
+      ansible.posix.firewalld:
+        service: samba
+        zone: public
+        state: enabled
+        immediate: true
+        permanent: true
