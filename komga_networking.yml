@@ -4,15 +4,7 @@
   vars:
     http_port: 8080/tcp
     komga_port: 25600/tcp
-   # internal_network: "192.168.1.0/24"
   tasks:
-    # - name: Allow traffic from internal network
-    #   ansible.posix.firewalld:
-    #     source: "{{ internal_network }}"
-    #     zone: public
-    #     state: enabled
-    #     immediate: true
-    #     permanent: true
     - name: Allow HTTP traffic
       ansible.posix.firewalld:
         port: "{{ http_port }}"

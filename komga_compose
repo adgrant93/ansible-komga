@@ -16,7 +16,12 @@ docker create \
   --user 1000:1000 \
   gotson/komga
 
-
+- name: Create a data container
+  community.docker.docker_container:
+    name: camgo
+    image: gotson/komga
+    volumes:
+      - /data
 
 /Users/cressen/Documents/Komga
 
