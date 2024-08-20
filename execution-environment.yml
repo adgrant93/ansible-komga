@@ -1,0 +1,20 @@
+---
+version: 3
+
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel8:latest:latest
+
+dependencies:
+  galaxy:
+    collections:
+      - community.docker
+
+
+options:
+  package_manager_path: /usr/bin/microdnf
+
+# ansible-builder build -t local/yourname
+# podman run -it localhost/ansible-execution-env bash
+# ansible-galaxy collection list
+# podman tag localhost/ansible-execution-env localhost/netcommon-hub-ee
