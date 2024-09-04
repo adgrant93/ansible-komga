@@ -16,7 +16,7 @@
             source: /mnt/Komga/Config
             target: /config
           - type: bind 
-            source: /mng/Komga/Manga
+            source: /mnt/Komga/Manga
             target: /home
         ports:
           - 25600:25600
