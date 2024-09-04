@@ -3,12 +3,10 @@ version: 3
 
 images:
   base_image:
-    name: registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel8:latest:latest
+    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:latest
 
 dependencies:
-  galaxy:
-    collections:
-      - community.docker
+  galaxy: requirements.yml
 
 
 options:
