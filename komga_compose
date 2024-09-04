@@ -1,32 +1,50 @@
-podman create \
-  --name=komga \
-  -p 25600:25600 \
-  --mount type=bind,source=/mnt/Komga/Config,target=/config \
-  --mount type=bind,source=/home/cressen/Documents,target=/home \
-  --restart unless-stopped \
-  --user 1000:1000 \
-  gotson/komga
-#Below Works
-docker create \
-  --name=komga \
-  -p 25600:25600 \
-  --mount type=bind,source=/mnt/Komga/Config,target=/config \
-  --mount type=bind,source=/mnt/Komga/Manga,target=/home \
-  --restart unless-stopped \
-  --user 1000:1000 \
-  gotson/komga
-
-- name: Create a data container
-  community.docker.docker_container:
-    name: camgo
+---
+version: '3.3'
+services:
+  komga:
     image: gotson/komga
+    container_name: komga
     volumes:
-      - /data
+      - type: bind
+        source: /mnt/Komga/Config
+        target: /config
+      - type: bind
+        source: /mnt/Komga/Manga
+        target: /home
+    ports:
+      - 25600:25600
+    user: "1000:1000"
+    restart: unless-stopped
 
-/Users/cressen/Documents/Komga
+# podman create \
+#   --name=komga \
+#   -p 25600:25600 \
+#   --mount type=bind,source=/mnt/Komga/Config,target=/config \
+#   --mount type=bind,source=/home/cressen/Documents,target=/home \
+#   --restart unless-stopped \
+#   --user 1000:1000 \
+#   gotson/komga
+# #Below Works
+# docker create \
+#   --name=komga \
+#   -p 25600:25600 \
+#   --mount type=bind,source=/mnt/Komga/Config,target=/config \
+#   --mount type=bind,source=/mnt/Komga/Manga,target=/home \
+#   --restart unless-stopped \
+#   --user 1000:1000 \
+#   gotson/komga
 
-podman run --rm -p 12345:8080 -v /home/cressen/Documents:/config -v /mnt/Komga/Manga/:/data docker.io/gotson/komga
-# ---
+# - name: Create a data container
+#   community.docker.docker_container:
+#     name: camgo
+#     image: gotson/komga
+#     volumes:
+#       - /data
+
+# /Users/cressen/Documents/Komga
+
+# podman run --rm -p 12345:8080 -v /home/cressen/Documents:/config -v /mnt/Komga/Manga/:/data docker.io/gotson/komga
+# # ---
 # version: '3.3'
 # services:
 #   komga:

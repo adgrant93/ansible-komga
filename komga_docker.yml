@@ -1,8 +1,24 @@
 ---
 
-- name: Playbook to install docker-SDK for python
+- name: Playbook to install reqs and setup komga
   hosts: Beldam
   tasks:
     - name: Install pip package docker-sdk
       ansible.builtin.pip:
         name: docker
+
+    - name: Create Komga container
+      community.docker.docker_container:
+        name: other_mother
+        image: gotson/komga
+        mounts: 
+          - type: bind
+            source: /mnt/Komga/Config
+            target: /config
+          - type: bind 
+            source: /mng/Komga/Manga
+            target: /home
+        ports:
+          - 25600:25600
+        user: 1000:1000
+        restart_policy: unless-stopped
